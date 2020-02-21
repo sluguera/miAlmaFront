@@ -1,0 +1,21 @@
+<div class="container">
+
+  <input #FechaInicial  id="fechaInicial" type="date">
+  <label for="fechaInicial">Fecha inicial</label>
+  <br>
+  <input #FechaFinal  id="fechaFinal" type="date">
+  <label for="fechaFinal">Fecha final</label>
+  <br>
+  <button class="btn" (click)="buscar(FechaInicial, FechaFinal)">Buscar</button>
+
+
+  <ul class="collection">
+    <li class="collection-item" *ngFor="let reporte of reportes" >
+      <strong class="green-text">Nombre producto: </strong>{{reporte.nombreProducto}}<br>
+      <strong class="green-text">Cliente: </strong>{{reporte.nombreCliente}}<br>
+      <strong class="green-text">Cedula: </strong>{{reporte.cedula}}<br>
+      <strong class="green-text">Fecha Compra: </strong>{{reporte.fechaCompra}}<br>
+    </li>
+  </ul>
+</div>
+
