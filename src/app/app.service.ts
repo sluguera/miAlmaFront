@@ -72,19 +72,6 @@ export class AppService {
     return this.httpClient.get(`${this.API}/precios/consultar/${id}`);
   }
 
-  createPrecios(obj: object) {
-    return this.httpClient.post(`${this.API}/precios/crear`, obj);
-  }
-
-  updatePrecios(obj: object) {
-    return this.httpClient.put(`${this.API}/precios/actualizar`, obj);
-  }
-
-  deletePrecios(obj: object) {
-    return this.httpClient.delete(`${this.API}/precios/borrar`, obj);
-  }
-
-
 // Pedido
 
   getPedido() {

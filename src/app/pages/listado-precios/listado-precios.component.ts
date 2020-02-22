@@ -30,37 +30,13 @@ export class ListadoPreciosComponent implements OnInit {
     this.modalCrear = M.Modal.init(this.modalCrearRef.nativeElement, {});
     this.modalEditar = M.Modal.init(this.modalEditarRef.nativeElement, {});
 
-    for (let i = 0; i < 100; i++) {
-      this.precios. push( {
-        idPrecio: 'idPrecio' + i,
-        valor: 'valor' + i
-      });
-    }
 
     this.getPrecios();
   }
 
 getPrecios() {
-    this.service.getPrecios().subscribe((response: Precio[]) => {
-      this.precios = response;
+    this.service.getPrecios().subscribe((precio: Precio[]) => {
+      this.precios = precio;
     });
 }
-  crear() {
-    console.log(this.formCrear.values)
-    this.service.createPrecios(this.formCrear.values).subscribe(response => {
-      window.alert('Se creó satisfactoriamente');
-      
-    });
-  }
-  editar(input: HTMLInputElement) {
-    this.service.updatePrecios({idPrecio: this.precioSeleccionado.idPrecio, valor: input.value}).subscribe(response => {
-      window.alert('Se creó satisfactoriamente');
-    });
-  }
-  borrar(id: any) {
-    this.service.deletePrecios({idPrecio: id.value, valor: 0}).subscribe(response => {
-      window.alert('Se Eliminó satisfactoriamente');
-    });
-  }
-
 }

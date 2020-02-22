@@ -18,7 +18,6 @@ export class ReporteComponent implements OnInit {
   }
 
   buscar(inputFechaInicial: HTMLInputElement, inputFechaFinal: HTMLInputElement) {
-    console.log(inputFechaInicial.value+" fechas "+inputFechaFinal.value);
     this.service.getReporte(inputFechaInicial.value, inputFechaFinal.value).subscribe((response: any) => {
       this.reportes = response;
     });
